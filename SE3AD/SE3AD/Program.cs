@@ -11,14 +11,12 @@ namespace SE3AD
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("Hello World!");
-
             //TestLinkedList();
             //Sort.Sort.TestSorting2();
             //var b = new BinarySearchTree();
             //b.Test();
-
-            TestPrioQueue();
+            TestDijkstra();
+            //TestPrioQueue();
 
             Console.ReadKey();
         }
@@ -38,7 +36,20 @@ namespace SE3AD
         static void TestDijkstra()
         {
             var graf = new WeightedGraf();
-            graf.AddConnection("", "", 1);
+            graf.AddConnection("v1", "v2", 2);
+            graf.AddConnection("v1", "v4", 1);
+            graf.AddConnection("v2", "v4", 3);
+            graf.AddConnection("v2", "v5", 10);
+            graf.AddConnection("v3", "v1", 4);
+            graf.AddConnection("v3", "v6", 5);
+            graf.AddConnection("v4", "v3", 2);
+            graf.AddConnection("v4", "v6", 8);
+            graf.AddConnection("v4", "v7", 4);
+            graf.AddConnection("v4", "v5", 2);
+            graf.AddConnection("v5", "v7", 6);
+            graf.AddConnection("v7", "v6", 1);
+            graf.Dijkstra("v1");
+            Console.WriteLine(graf.ToString());
         }
 
         static void TestPrioQueue()

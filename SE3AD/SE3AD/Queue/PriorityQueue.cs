@@ -25,7 +25,7 @@ namespace SE3AD.Queue
         {
             var position = queue.Count;
             queue.Add(value);
-            while (position > 0)
+            while (position > 1)
             {
                 if (queue[position].CompareTo(queue[position / 2]) < 0)
                 {

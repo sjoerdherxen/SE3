@@ -22,11 +22,11 @@ namespace SE3AD.Graf
         public int CompareTo(object obj)
         {
             var w = (WeightedNode)obj;
-            if (w.PathLength > PathLength)
+            if (w.PathLength < PathLength)
             {
                 return 1;
             }
-            if (w.PathLength < PathLength)
+            if (w.PathLength > PathLength)
             {
                 return -1;
             }
@@ -35,7 +35,8 @@ namespace SE3AD.Graf
 
         public override string ToString()
         {
-            var s = "{" + Name + ": PL" + PathLength + "}";
+            var prev = PreviousNode == null ? "NULL" : PreviousNode.Name;
+            var s = "{" + Name + ": PathLength: " + PathLength + ", PrevNode: " + prev + "}";
             return s;
         }
     }

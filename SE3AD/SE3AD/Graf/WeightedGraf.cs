@@ -42,7 +42,6 @@ namespace SE3AD.Graf
                 node.Value.IsDone = false;
             }
             Nodes[from].PathLength = 0;
-            Nodes[from].IsDone = true;
 
             var todo = new PriorityQueue<WeightedNode>();
             todo.Add(Nodes[from]);
@@ -57,9 +56,12 @@ namespace SE3AD.Graf
                 node.IsDone = true;
                 foreach (var item in node.ToNodes)
                 {
-                    item.ToNode.PathLength = item.Weight + node.PathLength;
-                    item.ToNode.PreviousNode = node;
-                    todo.Add(item.ToNode);
+                    if (item.ToNode.PathLength > item.Weight + node.PathLength)
+                    {
+                        item.ToNode.PathLength = item.Weight + node.PathLength;
+                        item.ToNode.PreviousNode = node;
+                        todo.Add(item.ToNode);
+                    }
                 }
             }
         }
