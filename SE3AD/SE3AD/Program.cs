@@ -2,6 +2,7 @@
 using SE3AD.Queue;
 using SE3AD.SinglyLinkedList;
 using SE3AD.Tree.BinarySearchTree;
+using SE3AD.Tree.BinaryTree;
 using System;
 using System.Diagnostics;
 
@@ -100,6 +101,32 @@ namespace SE3AD
                 Console.WriteLine("B" + s.ElapsedTicks);
                 s.Reset();
             }
+        }
+
+        public static void TestTreeToString()
+        {
+            var t = new BinaryTree();
+            t.TreeTop = new Tree.BinaryTree.Node
+            {
+                Value = 4,
+                Left = new Tree.BinaryTree.Node
+                {
+                    Value = 2,
+                    Left = new Tree.BinaryTree.Node
+                    {
+                        Value = 8, 
+                    }
+                },
+                Right = new Tree.BinaryTree.Node
+                {
+                    Value = 3,
+                    Left = new Tree.BinaryTree.Node
+                    {
+                        Value = 1,
+                    }
+                }
+            };
+            Console.Write(t.ToString());
         }
     }
 }
