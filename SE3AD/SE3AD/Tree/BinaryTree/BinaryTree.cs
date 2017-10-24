@@ -34,7 +34,7 @@ namespace SE3AD.Tree.BinaryTree
 
             if (TreeTop != null)
             {
-                TreeTop.FancyToString(d, s);
+                //TreeTop.FancyToString(d, s);
             }
 
             return s;
