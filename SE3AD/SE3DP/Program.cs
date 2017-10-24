@@ -20,6 +20,8 @@ namespace SE3DP
             Console.WriteLine("---------------------------------------------");
             Composite.Tester.Test();
             Console.WriteLine("---------------------------------------------");
+            Factory.Tester.Test();
+            Console.WriteLine("---------------------------------------------");
         }
     }
 }
